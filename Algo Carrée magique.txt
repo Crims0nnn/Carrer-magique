@@ -1,0 +1,74 @@
+CONST TAILLE=5
+
+DEBUT MAIN
+
+VAR Max=TAILLExTAILLE,Stop=TAILLE-1:ENTIER,Tableau[1..TAILLE,1..TAILLE]:TABLEAU D'ENTIER
+
+Inisialisation(Tableau[1..TAILLE,1..TAILLE])
+Ajout_Verification_Deplacement(Max,Stop,Tableau[1..TAILLE,1..TAILLE])
+Affichage(Tableau[1..TAILLE,1..TAILLE])
+
+FIN MAIN
+
+PROCEDURE Inisialisation:(Tableau[1..TAILLE,1..TAILLE]:ENTIER)
+
+DEBUTPROCEDURE
+
+VAR i=0,j=0:ENTIER
+
+POUR i de 1 a TAILLE FAIRE PASDE1
+	POUR j de 1 a TAILLE PASDE1
+		Tableau[i,j]=0
+	FINPOUR
+FINPOUR
+
+FINPROCEDURE
+
+
+PROCEDURE Ajout_Verification_Deplacement(Max,Stop:ENTIER,Tableau[1..TAILLE,1..TAILLE]:ENTIER)
+
+DEBUTPROCEDURE
+
+VAR i=0,j=0,k=1,Max=TAILLE*TAILLE,STOP=TAILLE-1:ENTIER
+
+POUR i=TAILLE/2-1 k!=Max+1 FAIRE PASDE 1
+	POUR j=TAILLE/2 k!=Max+1 FAIRE PASDE 1
+		SI i<0
+		ALORS i=Stop
+			SI i>Stop
+			ALORS i=0
+				SI j>Stop
+				ALORS j=0
+					SI j<0
+					ALORS j=Stop
+						SI(Tableau[i,j]==0
+						ALORS Tableau[i,j]=k
+						k=k+1
+						i=i-1
+							SINON
+							j=j-2
+							i=i-1
+						FINSI
+					FINSI
+				FINSI
+			FINSI
+		FINSI
+	FINPOUR
+FINPOUR
+
+FINPROCEDURE
+
+PROCEDURE Affichage(Tableau[1..TAILLE,1..TAILLE]:ENTIER)
+
+DEBUT PROCEDURE
+
+VAR i=0,j=0:ENTIER
+
+POUR i=0 i<TAILLE FAIRE PASDE 1
+	POUR j=0 j<TAILLE FAIRE PASDE 1
+		ECRIRE Tableau[i,j]
+	FINPOUR
+FINPOUR
+FINPROCEDURE
+
+	
